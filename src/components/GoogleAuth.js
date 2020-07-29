@@ -16,20 +16,44 @@ class GoogleAuth extends React.Component {
             }).then(() => {
                 this.auth = window.gapi.auth2.getAuthInstance()
                 this.setState({
-                    isSignedIn: this.auth.isSignedIn.get()
+                    isSignedIn: this.auth.isSignedIn.get() 
                 })
+                this.auth.isSignedIn.listen(this.authChange)
                 
             })
         })
           
     }
-    renderAuthButton() {
+
+    authChange = () => {
+        this.setState({ isSignedIn: this.auth.isSignedIn.get() })
+    } 
+
+    signOut = () => {
+        this.auth.signOut()
+    }
+
+    signIn = () => {
+        this.auth.signIn()
+    }
+
+    renderAuthButton=()=> {
         if(this.state.isSignedIn === null){
             return <div>I don't know</div>
         } else if(this.state.isSignedIn === true){
-            return <div>Signed In</div>
+            return (
+                <button onClick = {this.signOut} className = "ui red google button">
+                    <i className = "google icon"></i>
+                    Sign Out
+                </button>
+            )
         } else {
-            return <div>Signed Out</div>
+            return (
+                <button onClick = {this.signIn} className="ui red google button">
+                    <i className="google icon"></i>
+                    Sign In
+                </button>
+            )
         }
     }
 
