@@ -1,5 +1,7 @@
 import React from 'react'
 import { Field, reduxForm } from 'redux-form'
+import { connect } from 'react-redux'
+import {createStream } from '../../actions'
 
 class StreamCreate extends React.Component{
 
@@ -14,7 +16,7 @@ class StreamCreate extends React.Component{
         )     
     }
 
-    onSubmit(formValues){
+    onSubmit = (formValues) => {
         console.log(formValues)
     }
 
@@ -32,16 +34,16 @@ class StreamCreate extends React.Component{
 }
 
 const validate = (formValues) => {
-    const errors = {}
+    const error = {}
     if(!formValues.title){
-        errors.title = 'You must have a title'
+        error.title = 'You must have a title'
     }
 
     if(!formValues.description){
-        errors.description = 'You must have a description'
+        error.description = 'You must have a description'
     }
 
-    return errors
+    return error
 }
     
 export default reduxForm({
