@@ -8,6 +8,7 @@ class StreamCreate extends React.Component{
 
     componentDidMount(){
         this.props.fetchStreams()
+        console.log(this.props.streams)
     }
 
     renderInput({input, label, meta}) {
@@ -56,4 +57,10 @@ const formWrapped = reduxForm({
     validate: validate
 })(StreamCreate)
 
-export default connect(null, {createStream, fetchStreams})(formWrapped)
+const mapStateToProps = (state) => {
+    return {
+        streams: state.streams
+    }
+}
+
+export default connect(mapStateToProps, {createStream, fetchStreams})(formWrapped)
