@@ -1,20 +1,25 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {fetchStreams} from '../../actions'
+import {getStreams} from '../../actions'
+import { Link } from 'react-router-dom'
 
 class StreamList extends React.Component {
     
     componentDidMount() {
-        this.props.fetchStreams()
+        this.props.getStreams()
     }
 
     renderStreams(){
         return this.props.streams.map(stream =>{
             console.log(stream)
             return (
-                <div className = "field">
-                    <h1> {stream.title} </h1>
-                    <div >
+                <div className = "ui segments">
+                    <div className = "ui segment">
+                        <Link to={`/streams/${stream.id}`} className="item">
+                            <h1 className = "ui header"> {stream.title} </h1>   
+                        </Link>
+                    </div>
+                    <div class= "ui segment">
                         {stream.description}
                     </div>
                 </div>
@@ -24,7 +29,7 @@ class StreamList extends React.Component {
     render(){
         console.log(this.props.streams)
         return ( 
-            <div>
+            <div className = "ui container">
                 {this.renderStreams()}
             </div>
         )
@@ -37,4 +42,4 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps, { fetchStreams })(StreamList)
+export default connect(mapStateToProps, { getStreams })(StreamList)

@@ -13,12 +13,12 @@ export const signOut = () => {
     }
 }
 
-export const fetchStreams = () => async dispatch => {
+export const getStreams = () => async dispatch => {
     const response = await streams.get('/streams')
     dispatch({type: 'GET_STREAMS', payload: response.data})
 }
 
-export const fetchStream = (id, formValues) => async dispatch => {
+export const getStream = (id, formValues) => async dispatch => {
     const response = await streams.get(`/streams/${id}`, formValues)
     dispatch({type: 'GET_STREAM', payload: response.data})
 }

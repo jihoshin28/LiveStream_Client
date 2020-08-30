@@ -1,13 +1,13 @@
 import React from 'react'
 import { Field, reduxForm } from 'redux-form'
 import { connect } from 'react-redux'
-import {createStream, fetchStreams } from '../../actions'
+import {createStream, getStreams } from '../../actions'
 
 
 class StreamCreate extends React.Component{
 
     componentDidMount(){
-        this.props.fetchStreams()
+        this.props.getStreams()
         console.log(this.props.streams)
     }
 
@@ -63,4 +63,4 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps, {createStream, fetchStreams})(formWrapped)
+export default connect(mapStateToProps, {createStream, getStreams})(formWrapped)
