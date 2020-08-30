@@ -1,10 +1,14 @@
 import React from 'react'
 import { Field, reduxForm } from 'redux-form'
 import { connect } from 'react-redux'
-import {createStream } from '../../actions'
+import {createStream, fetchStreams } from '../../actions'
 
 
 class StreamCreate extends React.Component{
+
+    componentDidMount(){
+        this.props.fetchStreams()
+    }
 
     renderInput({input, label, meta}) {
         console.log(meta)
@@ -52,4 +56,4 @@ const formWrapped = reduxForm({
     validate: validate
 })(StreamCreate)
 
-export default connect(null, {createStream})(formWrapped)
+export default connect(null, {createStream, fetchStreams})(formWrapped)
