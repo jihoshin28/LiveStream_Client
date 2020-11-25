@@ -54,7 +54,7 @@ const validate = (formValues) => {
     
 const formWrapped = reduxForm({
     form: 'streamCreate',
-    validate: validate
+    validate: validate 
 })(StreamCreate)
 
 const mapStateToProps = (state) => {
