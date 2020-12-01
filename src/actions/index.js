@@ -18,7 +18,7 @@ export const getStreams = () => async dispatch => {
     dispatch({type: 'GET_STREAMS', payload: response.data})
 }
 
-export const getStream = (id, formValues) => async dispatch => {
+export const getStream = (id, headers, formValues) => async dispatch => {
     const response = await streams.get(`/streams/${id}`, headers, formValues)
     dispatch({type: 'GET_STREAM', payload: response.data})
 }
