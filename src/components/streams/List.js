@@ -7,6 +7,7 @@ class StreamList extends React.Component {
     
     componentDidMount() {
         this.props.getStreams()
+        console.log(this.props.streams)
     }
 
     renderStreams(){
