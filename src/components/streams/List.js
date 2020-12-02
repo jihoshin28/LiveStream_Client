@@ -16,9 +16,12 @@ class StreamList extends React.Component {
             return (
                 <div className = "ui segments">
                     <div className = "ui segment">
-                        <Link to={`/streams/${stream.id}`} className="item">
-                            <h1 className = "ui header"> {stream.title} </h1>   
-                        </Link>
+                        <span>
+                            <i className = "large icon camera"></i>
+                            <Link to={`/streams/${stream.id}`} className="item">
+                                <h1 className = "ui header"> {stream.title} </h1>   
+                            </Link>
+                        </span>
                     </div>
                     <div class= "ui segment">
                         {stream.description}
