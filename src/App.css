@@ -1,12 +1,13 @@
-.stream-title{
-    display: flex;
-    flex-direction: row; 
-    justify-content: space-between;
-}
-
-.stream-title {
+.stream-section {
     display: flex;
     flex-direction: row; 
     align-items: center;
+    justify-content: space-between; 
     margin-left: 1%;
 }   
+
+.stream-title{
+    display: flex;
+    flex-direction: row;
+    align-items:center;
+}
