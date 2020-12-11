@@ -20,7 +20,9 @@ class StreamShow extends React.Component {
 
 const mapStateToProps = state => {
     return {
-        // stream: state.streams.find(stream => stream.id === )
+        stream: Object.values(state.streams),
+        currentUserId: state.auth.userId,
+
     }
 }
 
