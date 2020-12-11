@@ -10,18 +10,25 @@ class StreamList extends React.Component {
         console.log(this.props.streams)
     }
 
+    renderUserActions(stream){
+        if(stream.userId === this.props.currentUserId){
+            return <div>EDIT/DELETE</div>
+        }
+    }
+
     renderStreams(){
         return this.props.streams.map(stream =>{
-            console.log(stream)
+            console.log(stream, this.props.currentUserId, stream.userId)
             return (
                 <div className = "ui segments">
-                    <div className = "ui segment">
-                        <span>
+                    <div className = "ui segment stream-section">
                             <i className = "large icon camera"></i>
                             <Link to={`/streams/${stream.id}`} className="item">
                                 <h1 className = "ui header"> {stream.title} </h1>   
                             </Link>
-                        </span>
+                        <div>
+                            {this.renderUserActions(stream)}
+                        </div>
                     </div>
                     <div class= "ui segment">
                         {stream.description}
@@ -42,7 +49,8 @@ class StreamList extends React.Component {
 
 const mapStateToProps = (state) => {
     return {
-        streams: Object.values(state.streams)
+        streams: Object.values(state.streams),
+        currentUserId: state.auth.userId
     }
 }
 
