@@ -21,11 +21,13 @@ class StreamList extends React.Component {
             console.log(stream, this.props.currentUserId, stream.userId)
             return (
                 <div className = "ui segments">
-                    <div className = "ui segment stream-section">
+                    <div className = "ui segment stream-title">
+                        <div className = "stream-section">
                             <i className = "large icon camera"></i>
                             <Link to={`/streams/${stream.id}`} className="item">
                                 <h1 className = "ui header"> {stream.title} </h1>   
                             </Link>
+                        </div>
                         <div>
                             {this.renderUserActions(stream)}
                         </div>
