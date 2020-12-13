@@ -43,7 +43,7 @@ class StreamList extends React.Component {
                     </div>
                     <div class= "ui segment">
                         {stream.description}
-                    </div>
+                    </div> 
                 </div>
             )
         })
