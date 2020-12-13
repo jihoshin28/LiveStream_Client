@@ -8,6 +8,7 @@ class StreamList extends React.Component {
     componentDidMount() {
         this.props.getStreams()
         console.log(this.props.streams)
+        console.log(this.props.currentUserId)
     }
 
     renderUserActions(stream){
