@@ -29,8 +29,8 @@ class StreamList extends React.Component {
     renderCreate(){
         if(this.props.isSignedIn){
             return (
-                <div className = "ui segment">
-                    <Link to = "/streams/new">
+                <div style = {{textAlign: 'right'}}>
+                    <Link className = "ui button primary" to = "/streams/create">
                         Create Stream
                     </Link>
                 </div>
@@ -67,10 +67,9 @@ class StreamList extends React.Component {
             <div>
                 <div className = "ui container">
                     {this.renderStreams()}
-                </div>
-                <div className = "ui container" style = {{marginTop: '10px'}}>
                     {this.renderCreate()}
                 </div>
+          
             </div>
         )
     }
