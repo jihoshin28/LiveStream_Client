@@ -26,6 +26,18 @@ class StreamList extends React.Component {
         }
     }
 
+    renderCreate(){
+        if(this.props.isSignedIn){
+            return (
+                <div className = "ui segment">
+                    <Link to = "/streams/new">
+                        Create Stream
+                    </Link>
+                </div>
+            )
+        }
+    }
+
     renderStreams(){
         return this.props.streams.map(stream =>{
             console.log(stream, this.props.currentUserId, stream.userId)
@@ -42,7 +54,7 @@ class StreamList extends React.Component {
                             {this.renderUserActions(stream)}
                         </div>
                     </div>
-                    <div class= "ui segment">
+                    <div class= "ui segment" >
                         {stream.description}
                     </div> 
                 </div>
@@ -52,8 +64,13 @@ class StreamList extends React.Component {
     render(){
         console.log(this.props.streams)
         return ( 
-            <div className = "ui container">
-                {this.renderStreams()}
+            <div>
+                <div className = "ui container">
+                    {this.renderStreams()}
+                </div>
+                <div className = "ui container" style = {{marginTop: '10px'}}>
+                    {this.renderCreate()}
+                </div>
             </div>
         )
     }
@@ -62,7 +79,8 @@ class StreamList extends React.Component {
 const mapStateToProps = (state) => {
     return {
         streams: Object.values(state.streams),
-        currentUserId: state.auth.userId
+        currentUserId: state.auth.userId,
+        isSignedIn: state.auth.isSignedIn
     }
 }
 
