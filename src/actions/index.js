@@ -1,4 +1,5 @@
 import streams from '../apis/streams'
+import history from '../history'
 
 export const signIn = (userId) => {
     return {
@@ -27,6 +28,7 @@ export const createStream = formValues => async (dispatch, getState) => {
     let {userId} = getState().auth
     const response = await streams.post('/streams', {...formValues, userId})
     dispatch({type: 'CREATE_STREAMS', payload: response.data})
+    history.push('/')
 }
 
 export const editStream = (id, formValues) => async dispatch => {
