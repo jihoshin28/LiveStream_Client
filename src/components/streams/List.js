@@ -40,7 +40,6 @@ class StreamList extends React.Component {
 
     renderStreams(){
         return this.props.streams.map(stream =>{
-            console.log(stream, this.props.currentUserId, stream.userId)
             return (
                 <div className = "ui segments">
                     <div className = "ui segment stream-section">

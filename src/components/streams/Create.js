@@ -11,22 +11,10 @@ class StreamCreate extends React.Component{
 
     render() {
         return (
-            // <div className = "ui container">
-            //     <form onSubmit = {this.props.handleSubmit(this.onSubmit)} className = "ui form">
-            //         <Field name = "title" component = {this.renderInput} label = "Enter Title"/>
-            //         <Field name = "description" component = {this.renderInput} label = "Enter Description"/>
-            //         <button className = "ui button red">Submit</button>
-            //     </form>
-            // </div>
             <StreamForm onSubmit = {this.onSubmit}/> 
         )
     }
 }
 
-// const mapStateToProps = (state) => {
-//     return {
-
-//     }
-// }
 
 export default connect(null, {createStream})(StreamCreate)
