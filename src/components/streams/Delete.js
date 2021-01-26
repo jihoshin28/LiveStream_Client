@@ -27,13 +27,21 @@ class StreamDelete extends React.Component{
             </React.Fragment>
         )
     } 
+
+    renderContent(){
+        if(!this.props.stream){
+            return "Loading..."
+        }
+        
+        return `Are you sure you want to delete this stream: "${this.props.stream.title}"`
+    }
       
     render(){
         return (
             <Modal 
                 onDismiss = {() => history.push('/')}
                 header = "Delete Stream" 
-                content = "Are you sure you want to delete this stream?"
+                content = {this.renderContent()}
                 actions = {this.renderActions()}
             />
         )
